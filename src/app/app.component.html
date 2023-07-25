@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Employee Management System</h2>
+
+  <!-- Add Employee Form -->
+  <div class="form">
+    <h3>Add New Employee</h3>
+    <form (ngSubmit)="addEmployee()">
+      <input type="text" placeholder="Name" [(ngModel)]="newEmployee.name" required>
+      <input type="email" placeholder="Email" [(ngModel)]="newEmployee.email" required>
+      <input type="text" placeholder="Job Title" [(ngModel)]="newEmployee.jobTitle" required>
+      <input type="text" placeholder="Phone" [(ngModel)]="newEmployee.phone" required>
+      <input type="text" placeholder="Image URL" [(ngModel)]="newEmployee.imageUrl" required>
+      <input type="text" placeholder="Employee Code" [(ngModel)]="newEmployee.employeeCode" required>
+      <button type="submit">Add Employee</button>
+    </form>
+  </div>
+
+  <!-- Employee List -->
+  <div class="list">
+    <h3>Employee List</h3>
+    <table>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.jobTitle }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>
+          <img [src]="employee.imageUrl" alt="{{ employee.name }}" width="50" height="50">
+        </td>
+        <td>{{ employee.employeeCode }}</td>
+        <td>
+          <!-- <button (click)="updateEmployee(employee)">Update</button>
+          <button (click)="deleteEmployee(employee.id)">Delete</button> -->
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
